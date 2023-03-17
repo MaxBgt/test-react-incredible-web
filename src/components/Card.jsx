@@ -1,4 +1,6 @@
 import React from "react";
+import "../styles/Card.css";
+import "../styles/tailwind.css";
 
 const Card = ({ movie }) => {
   const genreFinder = () => {
