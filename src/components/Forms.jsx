@@ -8,6 +8,7 @@ const Form = () => {
   const [moviesData, setMoviesData] = useState([]);
   const [search, setSearch] = useState("code");
   const [sortGoodBad, setSortGoodBad] = useState(null);
+  const [category, SetCategory] = useState("");
 
   useEffect(() => {
     axios
@@ -16,6 +17,12 @@ const Form = () => {
       )
       .then((res) => setMoviesData(res.data.results));
   }, [search]);
+
+  const filterByCategory = () => {
+    if (category) {
+      moviesData.filter(moviesData.includes(category));
+    }
+  };
 
   return (
     <div className="form-component">
@@ -26,9 +33,27 @@ const Form = () => {
             placeholder="Enter the title of a movie
             "
             id="search-input"
+            autoComplete="off"
             onChange={(e) => setSearch(e.target.value)}
           />
-          <input type="submit" value="Search" />
+          <input
+            type="submit"
+            value="Search"
+            onClick={(e) => e.preventDefault()}
+          />
+          <select
+            name="catégorie"
+            id="selectByCategory"
+            onChange={(e) => {
+              SetCategory(e.target.value);
+              filterByCategory();
+            }}
+          >
+            <option value="">Select category</option>
+            <option value="Drama">Drame</option>
+            <option value="Action">Action</option>
+            <option value="Adventure">Adventure</option>
+          </select>
         </form>
         <div className="btn-sort-container">
           <div

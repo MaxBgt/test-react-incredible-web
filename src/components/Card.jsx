@@ -113,7 +113,7 @@ const Card = ({ movie }) => {
       <p>{movie.overview}</p>
       {movie.genre_ids ? (
         <div className="btn" onClick={() => addStorage()}>
-          Ajouter aux coups de coeur
+          Add to favourites
         </div>
       ) : (
         <div
