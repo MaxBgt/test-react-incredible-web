@@ -12,7 +12,7 @@ const Form = () => {
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/search/movie?api_key=ed82f4c18f2964e75117c2dc65e2161d&query=${search}&language=fr-FR`
+        `https://api.themoviedb.org/3/search/movie?api_key=ed82f4c18f2964e75117c2dc65e2161d&query=${search}&language=us-EN`
       )
       .then((res) => setMoviesData(res.data.results));
   }, [search]);
@@ -23,11 +23,12 @@ const Form = () => {
         <form>
           <input
             type="text"
-            placeholder="Entrez le titre d'un film"
+            placeholder="Enter the title of a movie
+            "
             id="search-input"
             onChange={(e) => setSearch(e.target.value)}
           />
-          <input type="submit" value="Rechercher" />
+          <input type="submit" value="Search" />
         </form>
         <div className="btn-sort-container">
           <div

@@ -1,11 +1,6 @@
 import React from "react";
 
 const Card = ({ movie }) => {
-  const dateFormater = (date) => {
-    let [yy, mm, dd] = date.split("-");
-    return [dd, mm, yy].join("/");
-  };
-
   const genreFinder = () => {
     let genreArray = [];
     for (let i = 0; i < movie.genre_ids.length; i++) {
@@ -14,55 +9,55 @@ const Card = ({ movie }) => {
           genreArray.push(`Action`);
           break;
         case 12:
-          genreArray.push(`Aventure`);
+          genreArray.push(`Adventure`);
           break;
         case 16:
           genreArray.push(`Animation`);
           break;
         case 35:
-          genreArray.push(`Comédie`);
+          genreArray.push(`Comedy`);
           break;
         case 80:
-          genreArray.push(`Policier`);
+          genreArray.push(`Crime`);
           break;
         case 99:
-          genreArray.push(`Documentaire`);
+          genreArray.push(`Documentary`);
           break;
         case 18:
-          genreArray.push(`Drame`);
+          genreArray.push(`Drama`);
           break;
         case 10751:
-          genreArray.push(`Famille`);
+          genreArray.push(`Family`);
           break;
         case 14:
           genreArray.push(`Fantasy`);
           break;
         case 36:
-          genreArray.push(`Histoire`);
+          genreArray.push(`History`);
           break;
         case 27:
-          genreArray.push(`Horreur`);
+          genreArray.push(`Horror`);
           break;
         case 10402:
-          genreArray.push(`Musique`);
+          genreArray.push(`Music`);
           break;
         case 9648:
-          genreArray.push(`Mystère`);
+          genreArray.push(`Mystery`);
           break;
         case 10749:
           genreArray.push(`Romance`);
           break;
         case 878:
-          genreArray.push(`Science-fiction`);
+          genreArray.push(`Science fiction`);
           break;
         case 10770:
-          genreArray.push(`Téléfilm`);
+          genreArray.push(`TV Movie`);
           break;
         case 53:
           genreArray.push(`Thriller`);
           break;
         case 10752:
-          genreArray.push(`Guerre`);
+          genreArray.push(`War`);
           break;
         case 37:
           genreArray.push(`Western`);
@@ -103,9 +98,7 @@ const Card = ({ movie }) => {
         alt={`affiche ${movie.title}`}
       />
       <h2>{movie.title}</h2>
-      {movie.release_date ? (
-        <h5>Sorti le : {dateFormater(movie.release_date)}</h5>
-      ) : null}
+      {movie.release_date ? <h5>Release Date : {movie.release_date}</h5> : null}
       <h4>
         {movie.vote_average.toFixed(1)}/10 <span>⭐</span>
       </h4>
