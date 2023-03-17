@@ -1,19 +1,19 @@
-import { Provider } from 'react-redux'
-import { Link, Route, Routes } from 'react-router-dom'
-import appStore from '@store';
+import { Provider } from "react-redux";
+import { Link, Route, Routes } from "react-router-dom";
+import appStore from "@store";
 
 // Auto generates routes from files under ./pages
 // https://vitejs.dev/guide/features.html#glob-import
-const pages = import.meta.glob('./pages/*.jsx', { eager: true })
+const pages = import.meta.glob("./pages/*.jsx", { eager: true });
 
 const routes = Object.keys(pages).map((path) => {
-  const name = path.match(/\.\/pages\/(.*)\.jsx$/)[1]
+  const name = path.match(/\.\/pages\/(.*)\.jsx$/)[1];
   return {
     name,
-    path: name === 'Home' ? '/' : `/${name.toLowerCase()}`,
+    path: name === "Home" ? "/" : `/${name.toLowerCase()}`,
     component: pages[path].default,
-  }
-})
+  };
+});
 
 export function App({ store = appStore }) {
   return (
@@ -25,15 +25,15 @@ export function App({ store = appStore }) {
               <li key={path}>
                 <Link to={path}>{name}</Link>
               </li>
-            )
+            );
           })}
         </ul>
       </nav>
       <Routes>
         {routes.map(({ path, component: RouteComp }) => {
-          return <Route key={path} path={path} element={<RouteComp />}></Route>
+          return <Route key={path} path={path} element={<RouteComp />}></Route>;
         })}
       </Routes>
     </Provider>
-  )
+  );
 }
