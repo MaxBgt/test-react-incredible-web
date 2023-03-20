@@ -1,8 +1,8 @@
 import React from "react";
-import "../styles/Card.css";
-import "../styles/tailwind.css";
+import { useSelector } from "react-redux";
 
 const Card = ({ movie }) => {
+  const SetCategory = useSelector((state) => state.categoryReducer);
   const genreFinder = () => {
     let genreArray = [];
     for (let i = 0; i < movie.genre_ids.length; i++) {
@@ -28,20 +28,8 @@ const Card = ({ movie }) => {
         case 18:
           genreArray.push(`Drama`);
           break;
-        case 10751:
-          genreArray.push(`Family`);
-          break;
         case 14:
           genreArray.push(`Fantasy`);
-          break;
-        case 36:
-          genreArray.push(`History`);
-          break;
-        case 27:
-          genreArray.push(`Horror`);
-          break;
-        case 10402:
-          genreArray.push(`Music`);
           break;
         case 9648:
           genreArray.push(`Mystery`);
@@ -52,17 +40,11 @@ const Card = ({ movie }) => {
         case 878:
           genreArray.push(`Science fiction`);
           break;
-        case 10770:
-          genreArray.push(`TV Movie`);
-          break;
         case 53:
           genreArray.push(`Thriller`);
           break;
         case 10752:
           genreArray.push(`War`);
-          break;
-        case 37:
-          genreArray.push(`Western`);
           break;
         default:
           break;
