@@ -1,6 +1,7 @@
 import { Provider } from "react-redux";
 import { Link, Route, Routes } from "react-router-dom";
 import appStore from "@store";
+import app from "./store/features/app";
 
 // Auto generates routes from files under ./pages
 // https://vitejs.dev/guide/features.html#glob-import

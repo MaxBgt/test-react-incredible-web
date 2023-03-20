@@ -2,41 +2,27 @@ import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import Card from "./Card";
+import { useDispatch, useSelector } from "react-redux";
+import { setMoviesData } from "../store/features/app/moviesDataSlice";
 
 const Form = () => {
-  const [moviesData, setMoviesData] = useState([]);
   const [search, setSearch] = useState("code");
   const [sortGoodBad, setSortGoodBad] = useState(null);
   const [sortByDate, setSortByDate] = useState(null);
   const [category, SetCategory] = useState("");
+  const moviesData = useSelector((state) => state.moviesData.movies);
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    axios
+  const GetMovies = async () => {
+    await axios
       .get(
-        `https://api.themoviedb.org/3/search/movie?api_key=ed82f4c18f2964e75117c2dc65e2161d&query=${search}&language=us-EN`
+        `https://api.themoviedb.org/3/search/movie?api_key=17b1c4d68a51336bbc7cd07992ada264&query=${search}&language=us-EN`
       )
-      .then((res) => setMoviesData(res.data.results));
+      .then((res) => dispatch(setMoviesData(res.data)));
+  };
+  useEffect(() => {
+    GetMovies();
   }, [search]);
-  const sortByDateFunction = (a, b) => {
-    const dateA = new Date(a.release_date);
-    const dateB = new Date(b.release_date);
-    if (sortByDate === "oldestToNewest") {
-      return dateA - dateB;
-    } else if (sortByDate === "newestToOldest") {
-      return dateB - dateA;
-    }
-    return 0;
-  };
-
-  const sortByRatingFunction = (a, b) => {
-    if (sortGoodBad === "goodToBad") {
-      return b.vote_average - a.vote_average;
-    } else if (sortGoodBad === "badToGood") {
-      return a.vote_average - b.vote_average;
-    }
-    return 0;
-  };
 
   return (
     <div className="form-component">
@@ -110,65 +96,71 @@ const Form = () => {
         </div>
       </div>
       <div className="result">
-        {moviesData
-          .filter((movie) => {
-            switch (category) {
-              case "Drama":
-                return movie.genre_ids.includes(18);
-              case "Action":
-                return movie.genre_ids.includes(28);
-              case "Adventure":
-                return movie.genre_ids.includes(12);
-              case "Animation":
-                return movie.genre_ids.includes(16);
-              case "Comedy":
-                return movie.genre_ids.includes(35);
-              case "Crime":
-                return movie.genre_ids.includes(80);
-              case "Documentary":
-                return movie.genre_ids.includes(99);
-              case "Mystery":
-                return movie.genre_ids.includes(9648);
-              case "Romance":
-                return movie.genre_ids.includes(10749);
-              case "Science fiction":
-                return movie.genre_ids.includes(878);
-              case "Thriller":
-                return movie.genre_ids.includes(53);
-              case "War":
-                return movie.genre_ids.includes(10752);
-              default:
-                return true;
-            }
-          })
-          .slice(0, 12)
-          .slice(0, 12)
-          .sort((a, b) => {
-            if (sortByDate) {
-              if (sortByDate === "oldestToNewest") {
-                return new Date(a.release_date) - new Date(b.release_date);
-              } else if (sortByDate === "newestToOldest") {
-                return new Date(b.release_date) - new Date(a.release_date);
-              }
-            }
-            return 0;
-          })
-          .sort((a, b) => {
-            if (sortGoodBad) {
-              if (sortGoodBad === "goodToBad") {
-                return b.vote_average - a.vote_average;
-              } else if (sortGoodBad === "badToGood") {
-                return a.vote_average - b.vote_average;
-              }
-            }
-            return 0;
-          })
-          .map((movie) => (
-            <Card movie={movie} key={movie.id} />
-          ))}
+        {moviesData?.map((movie) => (
+          <Card movie={movie} key={movie.id} />
+        ))}
       </div>
     </div>
   );
 };
 
 export default Form;
+
+{
+  /* {/* {moviesData */
+}
+// .filter((movie) => {
+//   switch (category) {
+//     case "Drama":
+//       return movie.genre_ids.includes(18);
+//     case "Action":
+//       return movie.genre_ids.includes(28);
+//     case "Adventure":
+//       return movie.genre_ids.includes(12);
+//     case "Animation":
+//       return movie.genre_ids.includes(16);
+//     case "Comedy":
+//       return movie.genre_ids.includes(35);
+//     case "Crime":
+//       return movie.genre_ids.includes(80);
+//     case "Documentary":
+//       return movie.genre_ids.includes(99);
+//     case "Mystery":
+//       return movie.genre_ids.includes(9648);
+//     case "Romance":
+//       return movie.genre_ids.includes(10749);
+//     case "Science fiction":
+//       return movie.genre_ids.includes(878);
+//     case "Thriller":
+//       return movie.genre_ids.includes(53);
+//     case "War":
+//       return movie.genre_ids.includes(10752);
+//     default:
+//       return true;
+//   }
+// })
+// .slice(0, 12)
+// .slice(0, 12)
+// .sort((a, b) => {
+//   if (sortByDate) {
+//     if (sortByDate === "oldestToNewest") {
+//       return new Date(a.release_date) - new Date(b.release_date);
+//     } else if (sortByDate === "newestToOldest") {
+//       return new Date(b.release_date) - new Date(a.release_date);
+//     }
+//   }
+//   return 0;
+// })
+// .sort((a, b) => {
+//   if (sortGoodBad) {
+//     if (sortGoodBad === "goodToBad") {
+//       return b.vote_average - a.vote_average;
+//     } else if (sortGoodBad === "badToGood") {
+//       return a.vote_average - b.vote_average;
+//     }
+//   }
+//   return 0;
+// })
+// .map((movie) => (
+//   <Card movie={movie} key={movie.id} />
+// ))} */}
