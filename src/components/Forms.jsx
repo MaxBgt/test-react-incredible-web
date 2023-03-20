@@ -2,20 +2,15 @@ import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { setCategoryFilter } from "../actions/category.action";
 import Card from "./Card";
 
 const Form = () => {
   const [moviesData, setMoviesData] = useState([]);
   const [search, setSearch] = useState("code");
   const [sortGoodBad, setSortGoodBad] = useState(null);
+  const [sortByDate, setSortByDate] = useState(null);
   const [category, SetCategory] = useState("");
-  const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(setCategoryFilter(category));
-  }, [category]);
   useEffect(() => {
     axios
       .get(
@@ -23,12 +18,25 @@ const Form = () => {
       )
       .then((res) => setMoviesData(res.data.results));
   }, [search]);
+  const sortByDateFunction = (a, b) => {
+    const dateA = new Date(a.release_date);
+    const dateB = new Date(b.release_date);
+    if (sortByDate === "oldestToNewest") {
+      return dateA - dateB;
+    } else if (sortByDate === "newestToOldest") {
+      return dateB - dateA;
+    }
+    return 0;
+  };
 
-  // // const filterByCategory = () => {
-  // //   if (category) {
-  // //     moviesData.filter(moviesData.includes(category));
-  // //   }
-  // };
+  const sortByRatingFunction = (a, b) => {
+    if (sortGoodBad === "goodToBad") {
+      return b.vote_average - a.vote_average;
+    } else if (sortGoodBad === "badToGood") {
+      return a.vote_average - b.vote_average;
+    }
+    return 0;
+  };
 
   return (
     <div className="form-component">
@@ -74,14 +82,30 @@ const Form = () => {
             id="goodToBad"
             onClick={() => setSortGoodBad("goodToBad")}
           >
-            Top<span>➜</span>
+            Rating<span>➜</span>
           </div>
           <div
             className="btn-sort"
             id="badToGood"
             onClick={() => setSortGoodBad("badToGood")}
           >
-            Flop<span>➜</span>
+            Rating<span>➜</span>
+          </div>
+        </div>
+        <div className="btn-date-container">
+          <div
+            className="btn-date"
+            id="oldest"
+            onClick={() => setSortByDate("oldestToNewest")}
+          >
+            Oldest
+          </div>
+          <div
+            className="btn-date"
+            id="newest"
+            onClick={() => setSortByDate("newestToOldest")}
+          >
+            Newest
           </div>
         </div>
       </div>
@@ -118,12 +142,26 @@ const Form = () => {
             }
           })
           .slice(0, 12)
+          .slice(0, 12)
           .sort((a, b) => {
-            if (sortGoodBad === "goodToBad") {
-              return b.vote_average - a.vote_average;
-            } else if (sortGoodBad === "badToGood") {
-              return a.vote_average - b.vote_average;
+            if (sortByDate) {
+              if (sortByDate === "oldestToNewest") {
+                return new Date(a.release_date) - new Date(b.release_date);
+              } else if (sortByDate === "newestToOldest") {
+                return new Date(b.release_date) - new Date(a.release_date);
+              }
             }
+            return 0;
+          })
+          .sort((a, b) => {
+            if (sortGoodBad) {
+              if (sortGoodBad === "goodToBad") {
+                return b.vote_average - a.vote_average;
+              } else if (sortGoodBad === "badToGood") {
+                return a.vote_average - b.vote_average;
+              }
+            }
+            return 0;
           })
           .map((movie) => (
             <Card movie={movie} key={movie.id} />

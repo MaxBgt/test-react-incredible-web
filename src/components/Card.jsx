@@ -1,8 +1,6 @@
 import React from "react";
-import { useSelector } from "react-redux";
 
 const Card = ({ movie }) => {
-  const SetCategory = useSelector((state) => state.categoryReducer);
   const genreFinder = () => {
     let genreArray = [];
     for (let i = 0; i < movie.genre_ids.length; i++) {
