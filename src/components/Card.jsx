@@ -1,6 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Card = ({ movie }) => {
+  const navigate = useNavigate();
+  const handleClick = (movieId) => {
+    navigate(`/moviedetail/${movieId}`);
+  };
   const genreFinder = () => {
     let genreArray = [];
     for (let i = 0; i < movie.genre_ids.length; i++) {
@@ -75,12 +80,7 @@ const Card = ({ movie }) => {
       {movie.overview ? <h3>Synopsis</h3> : ""}
       <p>{movie.overview}</p>
       {movie.genre_ids ? (
-        <div
-          className="btn"
-          onClick={() => {
-            window.location.href = "/moviedetail";
-          }}
-        >
+        <div className="btn" onClick={() => handleClick(movie.id)}>
           View details
         </div>
       ) : (

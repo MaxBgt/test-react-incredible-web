@@ -1,7 +1,6 @@
 import { Provider } from "react-redux";
 import { Link, Route, Routes } from "react-router-dom";
 import appStore from "@store";
-import app from "./store/features/app";
 
 // Auto generates routes from files under ./pages
 // https://vitejs.dev/guide/features.html#glob-import
@@ -9,9 +8,13 @@ const pages = import.meta.glob("./pages/*.jsx", { eager: true });
 
 const routes = Object.keys(pages).map((path) => {
   const name = path.match(/\.\/pages\/(.*)\.jsx$/)[1];
+  let newPath = name === "Home" ? "/" : `/${name.toLowerCase()}`;
+  if (name === "MovieDetail") {
+    newPath += "/:movieId";
+  }
   return {
     name,
-    path: name === "Home" ? "/" : `/${name.toLowerCase()}`,
+    path: newPath,
     component: pages[path].default,
   };
 });
