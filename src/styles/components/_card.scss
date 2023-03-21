@@ -1,8 +1,8 @@
 .card {
-  flex: 1 0 25%;
-  min-width: 260px;
-  max-width: 280px;
-  height: 620px;
+  flex: 1 0 100%;
+  min-width: 100%;
+  max-width: 100%;
+  height: auto;
   background: #060d2c;
   border-radius: 35px;
   margin: 5px;
@@ -24,7 +24,7 @@
 
   img {
     width: 80%;
-    height: 254px;
+    height: auto;
     object-fit: cover;
     object-position: top;
     display: block;
@@ -103,6 +103,18 @@
       background: #212040;
       box-shadow: 0 0 10px #546ee4d2;
       font-size: 1.025rem;
+    }
+  }
+}
+@media (min-width: 768px) {
+  .card {
+    flex: 1 0 25%;
+    min-width: 260px;
+    max-width: 280px;
+    height: 620px;
+
+    img {
+      height: 254px;
     }
   }
 }

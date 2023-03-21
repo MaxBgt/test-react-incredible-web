@@ -3,7 +3,8 @@
     text-align: center;
   }
   form {
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     margin: 0 auto;
 
     input[type="text"] {
@@ -55,7 +56,8 @@
   }
   .btn-sort-container {
     margin: 8px auto;
-    width: 220px;
+    width: 100%;
+    max-width: 220px;
     display: flex;
     justify-content: space-around;
     cursor: pointer;
@@ -113,10 +115,18 @@
       width: 110px;
       transition: 0.3s;
       position: relative;
-
       &:hover {
         background: $black;
       }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .form-component {
+    .btn-date-container {
+      margin-right: 0;
+      justify-content: center;
     }
   }
 }
