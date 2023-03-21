@@ -84,15 +84,7 @@ const Card = ({ movie }) => {
           View details
         </div>
       ) : (
-        <div
-          className="btn"
-          onClick={() => {
-            deleteStorage();
-            window.location.reload();
-          }}
-        >
-          Supprimer de la liste
-        </div>
+        <div className="btn">Supprimer de la liste</div>
       )}
     </div>
   );

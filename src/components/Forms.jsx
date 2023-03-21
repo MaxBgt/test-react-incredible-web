@@ -8,15 +8,22 @@ import { setMoviesData } from "../store/features/app/moviesDataSlice";
 import Card from "./Card";
 
 const Form = () => {
-  const [sortGoodBad, setSortGoodBad] = useState(null);
-  const [sortByDate, setSortByDate] = useState(null);
-  const [category, SetCategory] = useState("");
+  const initialSortGoodBad =
+    typeof window !== "undefined" ? localStorage.getItem("sortGoodBad") : null;
+  const initialSortByDate =
+    typeof window !== "undefined" ? localStorage.getItem("sortByDate") : null;
+  const initialCategory =
+    typeof window !== "undefined" ? localStorage.getItem("category") : "";
+
+  const [sortGoodBad, setSortGoodBad] = useState(initialSortGoodBad);
+  const [sortByDate, setSortByDate] = useState(initialSortByDate);
+  const [category, SetCategory] = useState(initialCategory);
   const [search, setSearch] = useState("");
   const [submittedSearch, setSubmittedSearch] = useState("");
   const moviesData = useSelector((state) => state.moviesData.movies);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const GetMovies = async () => {
     await axios
       .get(
@@ -46,6 +53,24 @@ const Form = () => {
     e.preventDefault();
     setSubmittedSearch(search);
   };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("sortGoodBad", sortGoodBad);
+    }
+  }, [sortGoodBad]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("sortByDate", sortByDate);
+    }
+  }, [sortByDate]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("category", category);
+    }
+  }, [category]);
   return (
     <div className="form-component">
       <div className="form-container">
@@ -121,6 +146,7 @@ const Form = () => {
       </div>
       <div className="result">
         {moviesData?.results
+
           .filter((movie) => {
             switch (category) {
               case "Drama":
@@ -151,24 +177,14 @@ const Form = () => {
                 return true;
             }
           })
-          .slice(0, 12)
-          .slice(0, 12)
+          .sort((a, b) => b.vote_average - a.vote_average)
+          .slice(0, 8)
           .sort((a, b) => {
             if (sortByDate) {
               if (sortByDate === "oldestToNewest") {
                 return new Date(a.release_date) - new Date(b.release_date);
               } else if (sortByDate === "newestToOldest") {
                 return new Date(b.release_date) - new Date(a.release_date);
-              }
-            }
-            return 0;
-          })
-          .sort((a, b) => {
-            if (sortGoodBad) {
-              if (sortGoodBad === "goodToBad") {
-                return b.vote_average - a.vote_average;
-              } else if (sortGoodBad === "badToGood") {
-                return a.vote_average - b.vote_average;
               }
             }
             return 0;

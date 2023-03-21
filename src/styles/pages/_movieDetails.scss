@@ -49,22 +49,31 @@
 @media (min-width: 768px) {
   .movie-details-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
     height: 620px;
-
+    .title_detail_page {
+      font-size: 4rem;
+    }
     .head {
       flex-direction: row-reverse;
       justify-content: center;
-      margin-top: 100px;
+      align-items: flex-start;
       margin-bottom: 50px;
       margin-left: 100px;
     }
     .head-title {
-      margin-left: 100px;
+      margin-left: 10px;
       width: 30%;
+      margin-top: 50px;
+    }
+
+    .affiche {
+      width: auto;
+      margin-right: 60px;
     }
     .trailer {
-      margin-right: 100px;
+      margin-right: 20px;
     }
   }
 }

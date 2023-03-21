@@ -2,8 +2,6 @@ import { Provider } from "react-redux";
 import { Link, Route, Routes } from "react-router-dom";
 import appStore from "@store";
 
-// Auto generates routes from files under ./pages
-// https://vitejs.dev/guide/features.html#glob-import
 const pages = import.meta.glob("./pages/*.jsx", { eager: true });
 
 const routes = Object.keys(pages).map((path) => {
@@ -23,8 +21,11 @@ export function App({ store = appStore }) {
   return (
     <Provider store={store}>
       <nav>
-        <ul>
+        <ul className="nav_bar">
           {routes.map(({ name, path }) => {
+            // Ne pas afficher la page MovieDetail dans la navbar
+            if (name === "MovieDetail") return null;
+
             return (
               <li key={path}>
                 <Link to={path}>{name}</Link>

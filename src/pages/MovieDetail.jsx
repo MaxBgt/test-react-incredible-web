@@ -12,6 +12,7 @@ const MovieDetail = () => {
 
   return (
     <div className="movie-details-container">
+      <h1 className="title_detail_page">Details</h1>
       {selectedMovie ? (
         <>
           <div className="head">
