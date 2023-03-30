@@ -14,10 +14,13 @@ const Form = () => {
     typeof window !== "undefined" ? localStorage.getItem("sortByDate") : null;
   const initialCategory =
     typeof window !== "undefined" ? localStorage.getItem("category") : "";
+  const initialRating =
+    typeof window !== "undefined" ? localStorage.getItem("rating") : null;
 
   const [sortGoodBad, setSortGoodBad] = useState(initialSortGoodBad);
   const [sortByDate, setSortByDate] = useState(initialSortByDate);
   const [category, SetCategory] = useState(initialCategory);
+  const [rating, setRating] = useState(initialRating);
   const [search, setSearch] = useState("");
   const [submittedSearch, setSubmittedSearch] = useState("");
   const moviesData = useSelector((state) => state.moviesData.movies);
@@ -34,6 +37,8 @@ const Form = () => {
 
   useEffect(() => {
     const query = searchParams.get("query") || "code";
+    const category = searchParams.get("category") || "";
+    const rating = searchParams.get("rating") || "";
     if (query) {
       setSearch(query);
       setSubmittedSearch(query);
@@ -41,14 +46,19 @@ const Form = () => {
       setSearch("");
       setSubmittedSearch("");
     }
+    SetCategory(category);
+    setRating(rating);
   }, [searchParams]);
 
   useEffect(() => {
     if (submittedSearch) {
       GetMovies();
-      navigate(`?query=${submittedSearch}`);
+      navigate(
+        `?query=${submittedSearch}&category=${category}&rating=${rating}`
+      );
     }
-  }, [submittedSearch, navigate]);
+  }, [submittedSearch, navigate, category, rating]);
+
   const handleClick = (e) => {
     e.preventDefault();
     setSubmittedSearch(search);
@@ -146,7 +156,6 @@ const Form = () => {
       </div>
       <div className="result">
         {moviesData?.results
-
           .filter((movie) => {
             switch (category) {
               case "Drama":

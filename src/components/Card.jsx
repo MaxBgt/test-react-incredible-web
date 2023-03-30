@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Card = ({ movie }) => {
+  const [genreNames, setGenreNames] = useState([]);
   const navigate = useNavigate();
-  const handleClick = (movieId) => {
-    navigate(`/moviedetail/${movieId}`);
+  const handleClick = (movieId, genreNames, rating) => {
+    const genreNamesParam = genreNames.join(",");
+    navigate(
+      `/moviedetail/${movieId}?category=${genreNamesParam}&rating=${rating}`
+    );
   };
-  const genreFinder = () => {
+  const getGenreNames = () => {
     let genreArray = [];
     for (let i = 0; i < movie.genre_ids.length; i++) {
       switch (movie.genre_ids[i]) {
@@ -53,7 +57,13 @@ const Card = ({ movie }) => {
           break;
       }
     }
-    return genreArray.map((genre) => <li key={genre}>{genre}</li>);
+    return genreArray;
+  };
+  useEffect(() => {
+    setGenreNames(getGenreNames());
+  }, [movie.genre_ids]);
+  const genreFinder = () => {
+    return genreNames.map((genre) => <li key={genre}>{genre}</li>);
   };
   return (
     <div className="card">
@@ -80,7 +90,10 @@ const Card = ({ movie }) => {
       {movie.overview ? <h3>Synopsis</h3> : ""}
       <p>{movie.overview}</p>
       {movie.genre_ids ? (
-        <div className="btn" onClick={() => handleClick(movie.id)}>
+        <div
+          className="btn"
+          onClick={() => handleClick(movie.id, genreNames, movie.vote_average)}
+        >
           View details
         </div>
       ) : (

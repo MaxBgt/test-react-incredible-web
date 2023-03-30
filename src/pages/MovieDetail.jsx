@@ -1,14 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ReactPlayer from "react-player/youtube";
-import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import axios from "axios";
 
 const MovieDetail = () => {
   const { movieId } = useParams();
-  const moviesData = useSelector((state) => state.moviesData.movies);
-  const selectedMovie = moviesData?.results.find(
-    (movie) => movie.id === parseInt(movieId)
-  );
+  const [selectedMovie, setSelectedMovie] = useState(null);
+
+  useEffect(() => {
+    const fetchMovie = async () => {
+      try {
+        const response = await axios.get(
+          `https://api.themoviedb.org/3/movie/${movieId}?api_key=17b1c4d68a51336bbc7cd07992ada264&language=en-US`
+        );
+        setSelectedMovie(response.data);
+      } catch (error) {
+        console.error("Error fetching movie details:", error);
+      }
+    };
+
+    fetchMovie();
+  }, [movieId]);
 
   return (
     <div className="movie-details-container">
@@ -31,7 +43,7 @@ const MovieDetail = () => {
           </div>
         </>
       ) : (
-        <p>Film non trouvé</p>
+        <p>Not found</p>
       )}
     </div>
   );

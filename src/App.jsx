@@ -1,6 +1,7 @@
 import { Provider } from "react-redux";
 import { Link, Route, Routes } from "react-router-dom";
 import appStore from "@store";
+import MovieDetail from "./pages/MovieDetail"; // Ajoutez cette ligne
 
 const pages = import.meta.glob("./pages/*.jsx", { eager: true });
 
@@ -8,7 +9,7 @@ const routes = Object.keys(pages).map((path) => {
   const name = path.match(/\.\/pages\/(.*)\.jsx$/)[1];
   let newPath = name === "Home" ? "/" : `/${name.toLowerCase()}`;
   if (name === "MovieDetail") {
-    newPath += "/:movieId";
+    newPath += "/:movieId"; // Modifiez cette ligne
   }
   return {
     name,
@@ -23,9 +24,7 @@ export function App({ store = appStore }) {
       <nav>
         <ul className="nav_bar">
           {routes.map(({ name, path }) => {
-            // Ne pas afficher la page MovieDetail dans la navbar
             if (name === "MovieDetail") return null;
-
             return (
               <li key={path}>
                 <Link to={path}>{name}</Link>
