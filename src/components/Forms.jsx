@@ -177,7 +177,14 @@ const Form = () => {
                 return true;
             }
           })
-          .sort((a, b) => b.vote_average - a.vote_average)
+          .sort((a, b) => {
+            if (sortGoodBad === "goodToBad") {
+              return b.vote_average - a.vote_average;
+            } else if (sortGoodBad === "badToGood") {
+              return a.vote_average - b.vote_average;
+            }
+            return b.vote_average - a.vote_average;
+          })
           .slice(0, 8)
           .sort((a, b) => {
             if (sortByDate) {
