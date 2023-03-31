@@ -1,7 +1,6 @@
 import { Provider } from "react-redux";
 import { Link, Route, Routes } from "react-router-dom";
 import appStore from "@store";
-import MovieDetail from "./pages/MovieDetail"; // Ajoutez cette ligne
 
 const pages = import.meta.glob("./pages/*.jsx", { eager: true });
 
@@ -9,7 +8,7 @@ const routes = Object.keys(pages).map((path) => {
   const name = path.match(/\.\/pages\/(.*)\.jsx$/)[1];
   let newPath = name === "Home" ? "/" : `/${name.toLowerCase()}`;
   if (name === "MovieDetail") {
-    newPath += "/:movieId"; // Modifiez cette ligne
+    newPath += "/:movieId";
   }
   return {
     name,

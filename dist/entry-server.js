@@ -21,16 +21,13 @@ const __vite_glob_0_0 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.def
   __proto__: null,
   default: About$3
 }, Symbol.toStringTag, { value: "Module" }));
-const __vite_glob_0_1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null
-}, Symbol.toStringTag, { value: "Module" }));
 function About$2() {
   return /* @__PURE__ */ jsxs("div", { className: "user-list-page", children: [
     /* @__PURE__ */ jsx("h2", { children: "About Us" }),
     /* @__PURE__ */ jsx("p", { children: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil, et? Omnis iure ex, neque nihil fugit aut quos suscipit voluptatem expedita qui officiis excepturi eveniet molestiae dignissimos quod cumque laudantium nisi magnam officia obcaecati incidunt vel! Labore, odio ratione. Aliquam necessitatibus adipisci minus, distinctio aspernatur illo nam pariatur sint laborum itaque velit possimus, repudiandae labore quis neque incidunt earum sapiente a omnis perferendis reprehenderit doloribus. Esse distinctio quis est tempore earum incidunt, reprehenderit temporibus beatae saepe amet suscipit, alias itaque tempora, sequi necessitatibus eos eveniet accusantium. Mollitia delectus asperiores facere iusto animi culpa, modi placeat aspernatur illum explicabo, eveniet dolorem nulla ex quibusdam! Error saepe rem molestiae dolorum libero animi mollitia officia velit ea enim quasi explicabo, adipisci minus eos perspiciatis est reiciendis totam esse at rerum neque optio quam porro? Quas autem officiis dolore, quis ab quia aspernatur ipsam fugit distinctio. Dolor tempore, suscipit iure numquam maxime sed nobis vero non ex quas soluta itaque molestias ipsum nihil dignissimos qui. Nam vel sequi accusantium. Tempore ea, ullam praesentium sequi saepe eligendi reiciendis iure voluptate aperiam facilis fugit quis, velit incidunt officiis commodi vero. Reprehenderit repudiandae nam error facere non accusantium? Ab, dolorem assumenda eveniet dolores facere laboriosam earum fugit." })
   ] });
 }
-const __vite_glob_0_2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: About$2
 }, Symbol.toStringTag, { value: "Module" }));
@@ -40,7 +37,7 @@ function About$1() {
     /* @__PURE__ */ jsx("p", { children: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil, et? Omnis iure ex, neque nihil fugit aut quos suscipit voluptatem expedita qui officiis excepturi eveniet molestiae dignissimos quod cumque laudantium nisi magnam officia obcaecati incidunt vel! Labore, odio ratione. Aliquam necessitatibus adipisci minus, distinctio aspernatur illo nam pariatur sint laborum itaque velit possimus, repudiandae labore quis neque incidunt earum sapiente a omnis perferendis reprehenderit doloribus. Esse distinctio quis est tempore earum incidunt, reprehenderit temporibus beatae saepe amet suscipit, alias itaque tempora, sequi necessitatibus eos eveniet accusantium. Mollitia delectus asperiores facere iusto animi culpa, modi placeat aspernatur illum explicabo, eveniet dolorem nulla ex quibusdam! Error saepe rem molestiae dolorum libero animi mollitia officia velit ea enim quasi explicabo, adipisci minus eos perspiciatis est reiciendis totam esse at rerum neque optio quam porro? Quas autem officiis dolore, quis ab quia aspernatur ipsam fugit distinctio. Dolor tempore, suscipit iure numquam maxime sed nobis vero non ex quas soluta itaque molestias ipsum nihil dignissimos qui. Nam vel sequi accusantium. Tempore ea, ullam praesentium sequi saepe eligendi reiciendis iure voluptate aperiam facilis fugit quis, velit incidunt officiis commodi vero. Reprehenderit repudiandae nam error facere non accusantium? Ab, dolorem assumenda eveniet dolores facere laboriosam earum fugit." })
   ] });
 }
-const __vite_glob_0_3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: About$1
 }, Symbol.toStringTag, { value: "Module" }));
@@ -50,7 +47,7 @@ function About() {
     /* @__PURE__ */ jsx("p", { children: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil, et? Omnis iure ex, neque nihil fugit aut quos suscipit voluptatem expedita qui officiis excepturi eveniet molestiae dignissimos quod cumque laudantium nisi magnam officia obcaecati incidunt vel! Labore, odio ratione. Aliquam necessitatibus adipisci minus, distinctio aspernatur illo nam pariatur sint laborum itaque velit possimus, repudiandae labore quis neque incidunt earum sapiente a omnis perferendis reprehenderit doloribus. Esse distinctio quis est tempore earum incidunt, reprehenderit temporibus beatae saepe amet suscipit, alias itaque tempora, sequi necessitatibus eos eveniet accusantium. Mollitia delectus asperiores facere iusto animi culpa, modi placeat aspernatur illum explicabo, eveniet dolorem nulla ex quibusdam! Error saepe rem molestiae dolorum libero animi mollitia officia velit ea enim quasi explicabo, adipisci minus eos perspiciatis est reiciendis totam esse at rerum neque optio quam porro? Quas autem officiis dolore, quis ab quia aspernatur ipsam fugit distinctio. Dolor tempore, suscipit iure numquam maxime sed nobis vero non ex quas soluta itaque molestias ipsum nihil dignissimos qui. Nam vel sequi accusantium. Tempore ea, ullam praesentium sequi saepe eligendi reiciendis iure voluptate aperiam facilis fugit quis, velit incidunt officiis commodi vero. Reprehenderit repudiandae nam error facere non accusantium? Ab, dolorem assumenda eveniet dolores facere laboriosam earum fugit." })
   ] });
 }
-const __vite_glob_0_4 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: About
 }, Symbol.toStringTag, { value: "Module" }));
@@ -67,11 +64,15 @@ const moviesDataSlice = createSlice({
 const moviesDataReducer = moviesDataSlice.reducer;
 const { setMoviesData } = moviesDataSlice.actions;
 const Card = ({ movie }) => {
+  const [genreNames, setGenreNames] = useState([]);
   const navigate = useNavigate();
-  const handleClick = (movieId) => {
-    navigate(`/moviedetail/${movieId}`);
+  const handleClick = (movieId, genreNames2, rating) => {
+    const genreNamesParam = genreNames2.join(",");
+    navigate(
+      `/moviedetail/${movieId}?category=${genreNamesParam}&rating=${rating}`
+    );
   };
-  const genreFinder = () => {
+  const getGenreNames = () => {
     let genreArray = [];
     for (let i = 0; i < movie.genre_ids.length; i++) {
       switch (movie.genre_ids[i]) {
@@ -116,7 +117,13 @@ const Card = ({ movie }) => {
           break;
       }
     }
-    return genreArray.map((genre) => /* @__PURE__ */ jsx("li", { children: genre }, genre));
+    return genreArray;
+  };
+  useEffect(() => {
+    setGenreNames(getGenreNames());
+  }, [movie.genre_ids]);
+  const genreFinder = () => {
+    return genreNames.map((genre) => /* @__PURE__ */ jsx("li", { children: genre }, genre));
   };
   return /* @__PURE__ */ jsxs("div", { className: "card", children: [
     /* @__PURE__ */ jsx(
@@ -139,16 +146,25 @@ const Card = ({ movie }) => {
     /* @__PURE__ */ jsx("ul", { children: movie.genre_ids ? genreFinder() : movie.genres.map((genre) => /* @__PURE__ */ jsx("li", { children: genre.name }, genre)) }),
     movie.overview ? /* @__PURE__ */ jsx("h3", { children: "Synopsis" }) : "",
     /* @__PURE__ */ jsx("p", { children: movie.overview }),
-    movie.genre_ids ? /* @__PURE__ */ jsx("div", { className: "btn", onClick: () => handleClick(movie.id), children: "View details" }) : /* @__PURE__ */ jsx("div", { className: "btn", children: "Supprimer de la liste" })
+    movie.genre_ids ? /* @__PURE__ */ jsx(
+      "div",
+      {
+        className: "btn",
+        onClick: () => handleClick(movie.id, genreNames, movie.vote_average),
+        children: "View details"
+      }
+    ) : /* @__PURE__ */ jsx("div", { className: "btn", children: "Supprimer de la liste" })
   ] });
 };
 const Form = () => {
   const initialSortGoodBad = typeof window !== "undefined" ? localStorage.getItem("sortGoodBad") : null;
   const initialSortByDate = typeof window !== "undefined" ? localStorage.getItem("sortByDate") : null;
   const initialCategory = typeof window !== "undefined" ? localStorage.getItem("category") : "";
+  const initialRating = typeof window !== "undefined" ? localStorage.getItem("rating") : null;
   const [sortGoodBad, setSortGoodBad] = useState(initialSortGoodBad);
   const [sortByDate, setSortByDate] = useState(initialSortByDate);
   const [category, SetCategory] = useState(initialCategory);
+  const [rating, setRating] = useState(initialRating);
   const [search, setSearch] = useState("");
   const [submittedSearch, setSubmittedSearch] = useState("");
   const moviesData = useSelector((state) => state.moviesData.movies);
@@ -162,6 +178,8 @@ const Form = () => {
   };
   useEffect(() => {
     const query = searchParams.get("query") || "code";
+    const category2 = searchParams.get("category") || "";
+    const rating2 = searchParams.get("rating") || "";
     if (query) {
       setSearch(query);
       setSubmittedSearch(query);
@@ -169,13 +187,17 @@ const Form = () => {
       setSearch("");
       setSubmittedSearch("");
     }
+    SetCategory(category2);
+    setRating(rating2);
   }, [searchParams]);
   useEffect(() => {
     if (submittedSearch) {
       GetMovies();
-      navigate(`?query=${submittedSearch}`);
+      navigate(
+        `?query=${submittedSearch}&category=${category}&rating=${rating}`
+      );
     }
-  }, [submittedSearch, navigate]);
+  }, [submittedSearch, navigate, category, rating]);
   const handleClick = (e) => {
     e.preventDefault();
     setSubmittedSearch(search);
@@ -319,7 +341,14 @@ const Form = () => {
         default:
           return true;
       }
-    }).sort((a, b) => b.vote_average - a.vote_average).slice(0, 8).sort((a, b) => {
+    }).sort((a, b) => {
+      if (sortGoodBad === "goodToBad") {
+        return b.vote_average - a.vote_average;
+      } else if (sortGoodBad === "badToGood") {
+        return a.vote_average - b.vote_average;
+      }
+      return b.vote_average - a.vote_average;
+    }).slice(0, 8).sort((a, b) => {
       if (sortByDate) {
         if (sortByDate === "oldestToNewest") {
           return new Date(a.release_date) - new Date(b.release_date);
@@ -340,16 +369,26 @@ function Home() {
     /* @__PURE__ */ jsx(Form, {})
   ] });
 }
-const __vite_glob_0_5 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_4 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Home
 }, Symbol.toStringTag, { value: "Module" }));
 const MovieDetail = () => {
   const { movieId } = useParams();
-  const moviesData = useSelector((state) => state.moviesData.movies);
-  const selectedMovie = moviesData == null ? void 0 : moviesData.results.find(
-    (movie) => movie.id === parseInt(movieId)
-  );
+  const [selectedMovie, setSelectedMovie] = useState(null);
+  useEffect(() => {
+    const fetchMovie = async () => {
+      try {
+        const response = await axios.get(
+          `https://api.themoviedb.org/3/movie/${movieId}?api_key=17b1c4d68a51336bbc7cd07992ada264&language=en-US`
+        );
+        setSelectedMovie(response.data);
+      } catch (error) {
+        console.error("Error fetching movie details:", error);
+      }
+    };
+    fetchMovie();
+  }, [movieId]);
   return /* @__PURE__ */ jsxs("div", { className: "movie-details-container", children: [
     /* @__PURE__ */ jsx("h1", { className: "title_detail_page", children: "Details" }),
     selectedMovie ? /* @__PURE__ */ jsxs(Fragment, { children: [
@@ -368,10 +407,10 @@ const MovieDetail = () => {
         )
       ] }),
       /* @__PURE__ */ jsx("div", { className: "trailer", children: /* @__PURE__ */ jsx(ReactPlayer, { url: "https://www.youtube.com/watch?v=ysz5S6PUM-U" }) })
-    ] }) : /* @__PURE__ */ jsx("p", { children: "Film non trouvé" })
+    ] }) : /* @__PURE__ */ jsx("p", { children: "Not found" })
   ] });
 };
-const __vite_glob_0_6 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __vite_glob_0_5 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: MovieDetail
 }, Symbol.toStringTag, { value: "Module" }));
@@ -393,7 +432,7 @@ const store = configureStore({
     moviesData: moviesDataReducer
   }
 });
-const pages = /* @__PURE__ */ Object.assign({ "./pages/About.jsx": __vite_glob_0_0, "./pages/AboutUs copy 2.jsx": __vite_glob_0_1, "./pages/AboutUs.jsx": __vite_glob_0_2, "./pages/AboutUs2.jsx": __vite_glob_0_3, "./pages/AboutUs3.jsx": __vite_glob_0_4, "./pages/Home.jsx": __vite_glob_0_5, "./pages/MovieDetail.jsx": __vite_glob_0_6 });
+const pages = /* @__PURE__ */ Object.assign({ "./pages/About.jsx": __vite_glob_0_0, "./pages/AboutUs.jsx": __vite_glob_0_1, "./pages/AboutUs2.jsx": __vite_glob_0_2, "./pages/AboutUs3.jsx": __vite_glob_0_3, "./pages/Home.jsx": __vite_glob_0_4, "./pages/MovieDetail.jsx": __vite_glob_0_5 });
 const routes = Object.keys(pages).map((path) => {
   const name = path.match(/\.\/pages\/(.*)\.jsx$/)[1];
   let newPath = name === "Home" ? "/" : `/${name.toLowerCase()}`;

@@ -4,10 +4,15 @@ import { useNavigate } from "react-router-dom";
 const Card = ({ movie }) => {
   const [genreNames, setGenreNames] = useState([]);
   const navigate = useNavigate();
-  const handleClick = (movieId, genreNames, rating) => {
+  function formatTitleForUrl(title) {
+    return title.replace(/ /g, "-");
+  }
+
+  const handleClick = (movieId, movieTitle, genreNames, rating) => {
     const genreNamesParam = genreNames.join(",");
+    const formattedTitle = formatTitleForUrl(movieTitle);
     navigate(
-      `/moviedetail/${movieId}?category=${genreNamesParam}&rating=${rating}`
+      `/moviedetail/${movieId}query=${formattedTitle}category=${genreNamesParam}&rating=${rating}`
     );
   };
   const getGenreNames = () => {
@@ -92,7 +97,9 @@ const Card = ({ movie }) => {
       {movie.genre_ids ? (
         <div
           className="btn"
-          onClick={() => handleClick(movie.id, genreNames, movie.vote_average)}
+          onClick={() =>
+            handleClick(movie.id, movie.title, genreNames, movie.vote_average)
+          }
         >
           View details
         </div>
