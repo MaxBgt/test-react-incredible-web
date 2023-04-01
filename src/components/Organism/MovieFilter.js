@@ -1,13 +1,8 @@
-import axios from "axios";
 import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useSearchParams } from "react-router-dom";
-import { setMoviesData } from "../store/features/app/moviesDataSlice";
-import Card from "./Card";
+import SearchForm from "../molecules/SearchForm";
+import SortControl from "../molecules/SortControl";
 
-const Form = () => {
+const MovieFilter = () => {
   const initialSortGoodBad =
     typeof window !== "undefined" ? localStorage.getItem("sortGoodBad") : null;
   const initialSortByDate =
@@ -81,78 +76,21 @@ const Form = () => {
       localStorage.setItem("category", category);
     }
   }, [category]);
+
   return (
     <div className="form-component">
       <div className="form-container">
-        <form
-          onSubmit={() => {
-            console.log("click");
-          }}
-        >
-          <input
-            type="text"
-            placeholder="Search a movie"
-            id="search-input"
-            autoComplete="off"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-          <button type="button" onClick={handleClick}>
-            Search
-          </button>
-          <select
-            name="catégorie"
-            id="selectByCategory"
-            onChange={(e) => {
-              SetCategory(e.target.value);
-            }}
-          >
-            <option value="">Select category</option>
-            <option value="Drama">Drame</option>
-            <option value="Action">Action</option>
-            <option value="Animation">Animation</option>
-            <option value="Comedy">Comedy</option>
-            <option value="Crime">Crime</option>
-            <option value="Documentary">Documentary</option>
-            <option value="Mystery">Mystery</option>
-            <option value="Thriller">Thriller</option>
-            <option value="Romance">Romance</option>
-            <option value="Science fiction">Science fiction</option>
-            <option value="War">War</option>
-          </select>
-        </form>
-        <div className="btn-sort-container">
-          <div
-            className="btn-sort"
-            id="goodToBad"
-            onClick={() => setSortGoodBad("goodToBad")}
-          >
-            Rating<span>➜</span>
-          </div>
-          <div
-            className="btn-sort"
-            id="badToGood"
-            onClick={() => setSortGoodBad("badToGood")}
-          >
-            Rating<span>➜</span>
-          </div>
-        </div>
-        <div className="btn-date-container">
-          <div
-            className="btn-date"
-            id="oldest"
-            onClick={() => setSortByDate("oldestToNewest")}
-          >
-            Oldest
-          </div>
-          <div
-            className="btn-date"
-            id="newest"
-            onClick={() => setSortByDate("newestToOldest")}
-          >
-            Newest
-          </div>
-        </div>
+        <SearchForm
+          search={search}
+          setSearch={setSearch}
+          handleClick={handleClick}
+          category={category}
+          setCategory={SetCategory}
+        />
+        <SortControl
+          setSortGoodBad={setSortGoodBad}
+          setSortByDate={setSortByDate}
+        />
       </div>
       <div className="result">
         {moviesData?.results
@@ -213,4 +151,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default MovieFilter;

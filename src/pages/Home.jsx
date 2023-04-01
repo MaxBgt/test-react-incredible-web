@@ -1,11 +1,11 @@
-import Form from "../components/Forms";
-import Header from "../components/Header";
+import MovieFilter from "../components/Organism/MovieFilter";
+import Header from "../components/Organism/Header";
 
 export default function Home() {
   return (
     <div className="home-page">
       <Header />
-      <Form />
+      <MovieFilter />
     </div>
   );
 }

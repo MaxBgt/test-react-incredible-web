@@ -1,9 +1,10 @@
 import React from "react";
+import Logo from "../Logo";
 
 const Header = () => {
   return (
     <div className="header">
-      <h1>React Movies</h1>
+      <Logo />
     </div>
   );
 };

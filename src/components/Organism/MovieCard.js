@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import MovieCardHeader from "../molecules/MovieCardHeader";
+import GenreList from "../molecules/GenreList";
+import MovieOverview from "../molecules/MovieOverview";
+import MovieActions from "../../molecules/MovieActions";
 
-const Card = ({ movie }) => {
+const MovieCard = ({ movie }) => {
   const [genreNames, setGenreNames] = useState([]);
   const navigate = useNavigate();
+
   function formatTitleForUrl(title) {
     return title.replace(/ /g, "-");
   }
@@ -15,6 +20,7 @@ const Card = ({ movie }) => {
       `/moviedetail/${movieId}query=${formattedTitle}category=${genreNamesParam}&rating=${rating}`
     );
   };
+
   const getGenreNames = () => {
     let genreArray = [];
     for (let i = 0; i < movie.genre_ids.length; i++) {
@@ -64,50 +70,23 @@ const Card = ({ movie }) => {
     }
     return genreArray;
   };
+
   useEffect(() => {
     setGenreNames(getGenreNames());
   }, [movie.genre_ids]);
-  const genreFinder = () => {
-    return genreNames.map((genre) => <li key={genre}>{genre}</li>);
-  };
+
   return (
     <div className="card">
-      <img
-        src={
-          movie.poster_path
-            ? "https://image.tmdb.org/t/p/original/" + movie.poster_path
-            : "./img/poster.jpg"
+      <MovieCardHeader movie={movie} />
+      <GenreList
+        genres={
+          movie.genre_ids ? genreNames : movie.genres.map((genre) => genre.name)
         }
-        alt={`affiche ${movie.title}`}
       />
-      <h2>{movie.title}</h2>
-      {movie.release_date ? <h5>Release Date : {movie.release_date}</h5> : null}
-      <h4>
-        {movie.vote_average.toFixed(1)}/10 <span>⭐</span>
-      </h4>
-
-      <ul>
-        {movie.genre_ids
-          ? genreFinder()
-          : movie.genres.map((genre) => <li key={genre}>{genre.name}</li>)}
-      </ul>
-
-      {movie.overview ? <h3>Synopsis</h3> : ""}
-      <p>{movie.overview}</p>
-      {movie.genre_ids ? (
-        <div
-          className="btn"
-          onClick={() =>
-            handleClick(movie.id, movie.title, genreNames, movie.vote_average)
-          }
-        >
-          View details
-        </div>
-      ) : (
-        <div className="btn">Supprimer de la liste</div>
-      )}
+      <MovieOverview overview={movie.overview} />
+      <MovieActions movie={movie} handleClick={handleClick} />
     </div>
   );
 };
 
-export default Card;
+export default MovieCard;
